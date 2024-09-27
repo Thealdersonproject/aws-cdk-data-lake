@@ -1,13 +1,11 @@
 # mypy: ignore-errors
 import os
-from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Any
 
 import toml
 from dotenv import load_dotenv
 
-from commons.model import Account, Company, Project, Tags
 from commons.utils import constants
 from commons.utils.common_decorators import singleton
 
