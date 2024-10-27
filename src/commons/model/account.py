@@ -1,3 +1,5 @@
+"""Account model."""
+
 # mypy: ignore-errors
 from __future__ import annotations
 
@@ -5,9 +7,7 @@ from pydantic import BaseModel
 
 
 class Account(BaseModel):
-    """
-
-    The Account class represents an account in the system. It is a subclass of the BaseModel class.
+    """The Account class represents an account in the system. It is a subclass of the BaseModel class.
 
     Attributes:
         id (str): The unique identifier of the account.

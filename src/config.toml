@@ -1,67 +1,30 @@
-###############################################################################################################
-############################# config.toml for configurations (this is a toml file) ############################
-###############################################################################################################
-
-#############################################################################################################
-                    # #### Mandatory to gather information to create the app / stack. #### #
-#############################################################################################################
-
 # to set which keys are expected to be retrieved by environmental variables
 # the value is the key that will be lookedup on the environments variables
 [account]
 id="ACCOUNT_ID"
 region="REGION_ID"
 environment="ENVIRONMENT_NAME"
-add_value_to_default_tags=["*"]
-load_from_enviroment_variables=true
 
 # data lake storage names to be applied
 # if some does not apply, leave it with "" (blank) value.
 # e.g.: assets_name=""
-[data_lake_storage]
-first_layer_name="raw"
-second_layer_name="stage"
-third_layer_name="analytics"
-landing_zone_name="landing"
-assets_name="data-lake-assets"
-
-#############################################################################################################
-                    # #### Optional but expected to gather information to create the app / stack. #### #
-## if not found during load, will automaticaly apply the pattern below:
-## "account-environment#<resource_short_name>#<resource_name>"
-#############################################################################################################
-
-# defines the default pattern for resources naming
-#   Pattern:
-#       at the end of the name, resources will apply the resource short name e.g.: "s3" for S3 buckets
-#       and after it, will apply the resource name
-#       the "#" symbol is not the separator that will be applied, it is only to sinalize where to apply the
-#       selected separator.
-#   How to set:
-#       use header- to indicate where will the column value comes from
-#       and add the column name after it.
-#           e.g.: "account-environment" indicates that the column "environment" comes from the "account" branch
-#           by ending with # it indcates another value will be applied after it, using the same pattern
-#           whatever value not found will apply as written, turning it in a constant value.
-#   Placeholders:
-#       it is expected that to always have:
-#           <resource_short_name>: will apply the resource short name, e.g.: "s3"
-#           <resource_name>: will apply the given name for the resource, e.g.: "raw-layer"
-resource_name_pattern = "account-environment#company-short_name#app-short_name#<resource_short_name>#<resource_name>"
-
-
-#############################################################################################################
-                            # #### The information below is optional #### #
-#############################################################################################################
+[data-lake-storage]
+first_layer="raw"
+second_layer="stage"
+third_layer="analytics"
+landing_zone="landing"
+assets="data-lake-assets"
 
 # company information (customer) for naming pattern and tags
 [company]
 name="Amazon Web Services"
 short_name="aws"
-add_value_to_default_tags=["name"]
 
-# app information for naming pattern and tags
-[app]
-name="Data Lake"
-short_name="dlc"
-add_value_to_default_tags=["name"]
+# project information for naming pattern and tags
+[project]
+name="Data Lakehouse"
+short_name="dlh"
+
+# additional tags to be used in default tags, not mandatory, can be removed
+[additional-tags]
+tag="Me"

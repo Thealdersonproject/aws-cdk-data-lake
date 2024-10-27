@@ -1,10 +1,16 @@
-# mypy: ignore-errors
+"""Decorators."""
+
 from __future__ import annotations
 
 from functools import wraps
 
 
-def singleton(cls):
+def singleton(cls) :
+    """Create and maintain a single instance of an object.
+
+    :param cls: The class to apply the singleton pattern to.
+    :return: A decorated class instance that ensures only one instance of the class is created.
+    """
     instances = {}
 
     @wraps(cls)

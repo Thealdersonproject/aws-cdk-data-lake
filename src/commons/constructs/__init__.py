@@ -1,4 +1,5 @@
-from .s3 import S3 as S3Core
-from .kms import KMS as KmsCore
+"""This is for aws constructors."""
 
-__all__ = ["S3Core", "KmsCore"]
+from commons.constructs.aws.s3 import S3
+
+__all__ = ["S3"]

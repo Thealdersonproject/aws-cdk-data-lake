@@ -1,3 +1,5 @@
+"""Company model."""
+
 # mypy: ignore-errors
 from __future__ import annotations
 
@@ -5,27 +7,11 @@ from pydantic import BaseModel
 
 
 class Company(BaseModel):
-    """
-    This module contains the definition of the `Company` class.
-
-    Classes:
-    - `Company`: A class that represents a company.
+    """Company class inherits from BaseModel and represents a company entity.
 
     Attributes:
-    - `name` (str): The name of the company.
-    - `short_name` (str): The short name of the company.
-
-    Example:
-    ```
-    from module_name import Company
-
-    # Create a new company
-    company = Company()
-
-    # Set the name, short name and team of the company
-    company.name = "ABC Company"
-    company.short_name = "ABC"
-    ```
+        name (str): The full name of the company.
+        short_name (str): The short name or abbreviation of the company.
     """
 
     name: str
